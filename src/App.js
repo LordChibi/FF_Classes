@@ -4,7 +4,7 @@ import Navigation from './Navbar';
 import JobList from './Job';
 import AppRoutes from './AppRoutes';
 import{Routes,Route} from "react-router-dom"
-import Details from "./Details";
+import Details from "./ClassDetails";
 
 function App() {
   return (

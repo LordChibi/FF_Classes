@@ -1,11 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom"
 import "./ClassCard.css";
+
 export default class JobList extends React.Component{
+    componentDidMount(){
+        console.log(this.props)
+    }
     render(){
         return(
             <div className="Card">
-                <Link to={`/ff/classes/${this.props.id}`} state={{name:this.props.name, age:this.props.age, job:this.props.job, game:this.props.origin, bio:this.props.bio}}>
+                <Link to={`/ff/classes/${this.props.id}`} state={{name:this.props.name, age:this.props.age, 
+                    job:this.props.job, game:this.props.origin, bio:this.props.description}}>
                 <p className="charaName"> Name: {this.props.name}</p>
                 </Link>
                 <img className="charaImage" src={this.props.img}/>

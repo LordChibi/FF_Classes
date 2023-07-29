@@ -1,6 +1,6 @@
 import React from "react";
 import{Routes,Route} from "react-router-dom"
-import Details from "./Details";
+import Details from "./ClassDetails";
 
 function AppRoutes(){
     return(
