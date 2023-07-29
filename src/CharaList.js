@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
-import ClassCard from "./ClassCard";
-import "./Jobs.css"
+import CharaCard from "./CharaCard";
+import "./CharaList.css"
 const BASE_URL="https://www.moogleapi.com/api/v1/characters/search?job=thief"
 
 export default class JobList extends React.Component{
@@ -18,9 +18,9 @@ export default class JobList extends React.Component{
     render(){console.log(this.state.jobs)
         return(
             <>
-                <ul className="ClassList">
+                <ul className="CharaList">
                     {this.state.jobs.map((job)=>(
-                    <ClassCard key={job.id} id={job.id} name={job.name} 
+                    <CharaCard key={job.id} id={job.id} name={job.name} 
                         age={job.age} img={job.pictures[0].url} job={job.job} origin={job.origin} bio={job.description}/>
                     ))}
                 </ul>

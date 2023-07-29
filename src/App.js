@@ -1,18 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
 import Navigation from './Navbar';
-import JobList from './Job';
-import AppRoutes from './AppRoutes';
+import CharaList from './CharaList';
 import{Routes,Route} from "react-router-dom"
-import Details from "./ClassDetails";
+import Details from "./CharaDetails";
 
 function App() {
   return (
     <div className="App">
       <Navigation/>
       <Routes>
-        <Route path="/" element={<JobList/>}/>
-        <Route path="/ff/classes/:id" element={<Details/>}/>
+        <Route path="/" element={<CharaList/>}/>
+        <Route path="/ff/characters/:id" element={<Details/>}/>
       </Routes>
     </div>
   );
