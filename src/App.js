@@ -10,7 +10,8 @@ function App() {
       <Navigation/>
       <Routes>
         <Route path="/" element={<CharaList/>}/>
-        <Route path="/ff/characters/:id" element={<Details/>}/>
+        <Route path="/class/:id" element={<CharaList/>}/>
+        <Route path="/characters/:id" element={<Details/>}/>
       </Routes>
     </div>
   );

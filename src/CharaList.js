@@ -11,16 +11,15 @@ export default class JobList extends React.Component{
     componentDidMount(){
         axios.get(BASE_URL).then((res) =>{
             const jobs=res.data;
-            console.log(jobs)
             this.setState({jobs})
         });
     }
-    render(){console.log(this.state.jobs)
+    render(){
         return(
             <>
                 <ul className="CharaList">
                     {this.state.jobs.map((job)=>(
-                    <CharaCard key={job.id} id={job.id} name={job.name} 
+                    <CharaCard key={job.id} id={job.id} name={job.name}
                         age={job.age} img={job.pictures[0].url} job={job.job} origin={job.origin} bio={job.description}/>
                     ))}
                 </ul>

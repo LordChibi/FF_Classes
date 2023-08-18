@@ -4,12 +4,12 @@ import "./CharaCard.css";
 
 export default class JobList extends React.Component{
     componentDidMount(){
-        console.log(this.props)
+        // console.log(this.props)
     }
     render(){
         return(
             <div className="Card">
-                <Link to={`/ff/characters/${this.props.name}`}>
+                <Link to={`/characters/${this.props.name}`}>
                     <p className="charaName"> Name: {this.props.name}</p>
                 </Link>
                 <img className="charaImage" src={this.props.img}/>
@@ -17,7 +17,7 @@ export default class JobList extends React.Component{
                 <h3 className="charaJob"> Job: {this.props.job}</h3>
                 <h4 className="charaGame"> Game: {this.props.origin}</h4>
             </div>
-            
+
         )
     }
 }
