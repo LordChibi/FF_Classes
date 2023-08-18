@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 
 export default function JobList (){
@@ -10,8 +9,7 @@ export default function JobList (){
 
     async function getData(){
         let BASE_URL="https://www.moogleapi.com/api/v1/characters/search?name="
-        BASE_URL = BASE_URL+(location.pathname.slice(15))
-        console.log()
+        BASE_URL = BASE_URL+(location.pathname.slice(12))
         const response = await fetch(BASE_URL);
         const character = await response.json();
         console.log(response)
@@ -24,6 +22,7 @@ export default function JobList (){
     useEffect(()=> {
         getData()
     },[]);
+
         return(
             <div className="Card">
                 <p className="charaName"> Name: {character.name}</p>

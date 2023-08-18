@@ -1,29 +1,40 @@
-import React from "react";
-import axios from "axios";
 import CharaCard from "./CharaCard";
 import "./CharaList.css"
-const BASE_URL="https://www.moogleapi.com/api/v1/characters/search?job=thief"
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
-export default class JobList extends React.Component{
-    state={
-        jobs:[]
+
+export default function JobList (){
+    const [jobs, setJobs] = useState([])
+    const location = useLocation()
+
+    async function getData(){
+        let BASE_URL="https://www.moogleapi.com/api/v1/characters/search?job="
+        if (location.pathname == '/'){
+            BASE_URL=BASE_URL+'thief'
+        }
+        else{
+            BASE_URL = BASE_URL+(location.pathname.slice(7))
+        }
+        const response = await fetch(BASE_URL);
+        const data = await response.json();
+        console.log(response)
+        console.log(data)
+        setJobs(data)
     }
-    componentDidMount(){
-        axios.get(BASE_URL).then((res) =>{
-            const jobs=res.data;
-            this.setState({jobs})
-        });
-    }
-    render(){
-        return(
-            <>
-                <ul className="CharaList">
-                    {this.state.jobs.map((job)=>(
-                    <CharaCard key={job.id} id={job.id} name={job.name}
-                        age={job.age} img={job.pictures[0].url} job={job.job} origin={job.origin} bio={job.description}/>
-                    ))}
-                </ul>
-            </>
-        )
-    }
+
+    useEffect(()=> {
+        getData()
+    },[]);
+
+    return(
+        <>
+            <ul className="CharaList">
+                {jobs.map((job)=>(
+                <CharaCard key={job.id} id={job.id} name={job.name}
+                    age={job.age} img={job.pictures[0].url} job={job.job} origin={job.origin} bio={job.description}/>
+                ))}
+            </ul>
+        </>
+    )
 }

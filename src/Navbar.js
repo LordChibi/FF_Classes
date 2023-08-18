@@ -19,6 +19,7 @@ function Navigation(){
               <ul className="dropdown-menu">
                 <li><a className="dropdown-item" href="/class/thief">Thief</a></li>
                 <li><a className="dropdown-item" href="/class/warrior">Warrior</a></li>
+                <li><a className="dropdown-item" href="/class/paladin">Paladin</a></li>
                 <li><a className="dropdown-item" href="/class/blackmage">Black Mage</a></li>
               </ul>
 
